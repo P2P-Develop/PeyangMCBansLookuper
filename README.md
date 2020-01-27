@@ -1,16 +1,16 @@
 # PeyangMCBansLookuper
-##This mod is Mcbans Lookup mod.()
+## This mod is Mcbans Lookup mod.()
 
-##Usage
-###Commands
+## Usage
+## Commands
 /lp <PlayerName>
 /lookup <Playername>
-###KeyBindings
-<L> 
+### KeyBindings
+<L> Lookup Players
 
-##LICENSE
+## LICENSE
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-#THIS MOD USES MCBANS API
+# THIS MOD USES MCBANS API
 
 (use translater)
