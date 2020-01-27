@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "PeyangMcBansLookuper",
+    "name": "Peyang MCBans Lookup Mods",
+    "description": "MCbans Lookup mods. /lookup(lp) for display.",
+    "version": "1.0",
+    "mcversion": "[1.8-1.8.9]",
+    "url": "https://peya.ml/",
+    "updateUrl": "",
+    "authorList": [
+      "Compiled_peyang"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
