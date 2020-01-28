@@ -6,6 +6,9 @@ This mod is lookup McBans player data on the chat screen.
  | alias
 /lp \<PlayerName\> 
 
+### Lookup screen
+- Click BanID to go to the page where the ID is displayed.
+
 ### KeyBindings
 \<L\> -- Lookup watching player.
 
