@@ -15,8 +15,7 @@ out
 
 # gradle
 build
-.gradle
-/gradle
+/.gradle/
 
 # other
 eclipse
@@ -24,7 +23,4 @@ run
 
 #forge
 CREDITS-fml.txt
-
-#gradle
-gradlew
-gradlew.bat
+forge-1.8.9-11.15.1.1722-changelog.txt
