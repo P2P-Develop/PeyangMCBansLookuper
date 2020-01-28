@@ -1,11 +1,10 @@
 # PeyangMCBansLookuper
-## This mod is Mcbans Lookup mod.()
+This mod is lookup McBans player data　on the chat screen.
 
 ## Usage
-## Commands
-/lp \<PlayerName\>
-
-/lookup \<PlayerName\> 
+/lookup \<PlayerName\> - Lookup \<PlayerName\> McBans player data.
+ | alias
+/lp \<PlayerName\> 
 
 ### KeyBindings
 \<L\> -- Lookup Players
@@ -15,5 +14,3 @@
 
 # THIS MOD USES MCBANS API
 [MCBans](http://mcbans.com/)
-
-(use translater)
