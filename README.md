@@ -1,5 +1,5 @@
 # PeyangMCBansLookuper
-This mod is lookup McBans player data　on the chat screen.
+This mod is lookup McBans player data on the chat screen.
 
 ## Usage
 /lookup \<PlayerName\> - Lookup \<PlayerName\> McBans player data.
