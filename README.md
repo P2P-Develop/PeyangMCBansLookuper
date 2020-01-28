@@ -7,7 +7,7 @@ This mod is lookup McBans player data　on the chat screen.
 /lp \<PlayerName\> 
 
 ### KeyBindings
-\<L\> -- Lookup Players
+\<L\> -- Lookup watching player.
 
 ## LICENSE
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
