@@ -3,10 +3,12 @@
 
 ## Usage
 ## Commands
-/lp <PlayerName>
-/lookup <Playername>
+/lp \<PlayerName\>
+
+/lookup \<PlayerName\> 
+
 ### KeyBindings
-<L> Lookup Players
+\<L\> -- Lookup Players
 
 ## LICENSE
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
