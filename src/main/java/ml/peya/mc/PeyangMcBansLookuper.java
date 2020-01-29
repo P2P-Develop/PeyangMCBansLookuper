@@ -37,6 +37,7 @@ public class PeyangMcBansLookuper
     public static final String MOD_ACCEPTED_MC_VERSIONS = "[1.8,1.8.9]";
     public static KeyBinding lookupKeys;
     public static String apikey = "";
+    public static String colours;
     public static Logger logger;
 
     @EventHandler
@@ -52,7 +53,8 @@ public class PeyangMcBansLookuper
         try
         {
             cfg.load();
-            apikey = cfg.getString("apikey", "core", "edit required!", "The API Key To MCBans Is Necessary For The Use.");
+            apikey = cfg.getString("apikey", "core", "edit required!", "The API key to MCBans is necessary for the use.");
+            colours = cfg.getString("name", "category", "color", "description");
         }
         finally
         {
