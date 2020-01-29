@@ -15,8 +15,7 @@ public class Events
     @SideOnly(Side.CLIENT)
     public void onKeyEvent(InputEvent.KeyInputEvent e)
     {
-        KeyBinding action = PeyangMcBansLookuper.lookupKeys;
-        if (action.isPressed())
+        if (PeyangMcBansLookuper.lookupKeys.isPressed())
         {
             Minecraft mc = Minecraft.getMinecraft();
             if (Facing.isFacingPlayer(mc))
