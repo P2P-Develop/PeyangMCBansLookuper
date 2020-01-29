@@ -47,10 +47,10 @@ public class LookupCommands extends CommandBase
 
                     if(isenableaapikey)
                     {
-                        LookupPerserPlus lpp = Mcbans.lookup(sendername, PeyangMcBansLookuper.apikey, targetname, isenableaapikey);
+                        LookupParserPlus lpp = Mcbans.lookup(sendername, PeyangMcBansLookuper.apikey, targetname, isenableaapikey);
 
-                        LookupPerserPlus.STATUS result = lpp.RESULT;
-                        if (result == LookupPerserPlus.STATUS.OK)
+                        LookupParserPlus.STATUS result = lpp.RESULT;
+                        if (result == LookupParserPlus.STATUS.OK)
                         {
                             int totalbans = lpp.total;
                             double reputation = lpp.reputation;
