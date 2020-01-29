@@ -13,6 +13,10 @@ main.init.error.notworkinserver = This mod does not work on server!
 main.init.error.clientrequired = This mod does not work on server. please run on the client.
 main.init.error.incompatibleserver = This mod does not work on the server side!
 
-main.init.error.api.setkey = Please set API key!
+command.error.teapot = Error: I'm a teapot.
+command.error.notfoundplayer = Error: Player not found!
+command.error.unknown = Error: Unknown Please post issue to https://github.com/peyang-Celeron/PeyangMCBansLookuper/issues
+command.error.servernotf = Error: Unable to connect to MCBans.
+command.error.apinotf = API Key not found!
 
 main.init.success.keybind = Lookup watching player.

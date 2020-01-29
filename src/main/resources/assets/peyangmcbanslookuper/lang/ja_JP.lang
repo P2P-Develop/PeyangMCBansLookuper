@@ -13,10 +13,10 @@ main.init.error.notworkinserver = このModはサーバでは動作しません�
 main.init.error.clientrequired = このModはサーバでは動作しません。クライアント側で実行してください。
 main.init.error.incompatibleserver = このModはサーバサイドでは動作しません。
 
-command.error.teapot = エラー:私はティーポットです！
-command.error.notfoundplayer = エラー:プレイヤーが見つかりませんでした！
-command.error.unknown = エラー:不明
-command.error.servernotf = エラー:MCBansサーバに接続できませんでした。
-comamnd.error.apinotf = APiキーが見つかりませんでした！
+command.error.teapot = エラー: 私はティーポットです！
+command.error.notfoundplayer = エラー: プレイヤーが見つかりませんでした！
+command.error.unknown = エラー: 不明 https://github.com/peyang-Celeron/PeyangMCBansLookuper/issues にご報告ください。
+command.error.servernotf = エラー: MCBansサーバに接続できませんでした。
+command.error.apinotf = APiキーが見つかりませんでした！
 
 main.init.success.keybind = 目の前のプレイヤーをルックアップします。
