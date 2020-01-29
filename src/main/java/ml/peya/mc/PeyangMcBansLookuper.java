@@ -68,7 +68,6 @@ public class PeyangMcBansLookuper
     @EventHandler
     public void init(FMLInitializationEvent e)
     {
-        System.out.println("Hello, World!");
         MinecraftForge.EVENT_BUS.register(new Events());
         ClientRegistry.registerKeyBinding(new KeyBinding("Check the player's lookup at", 38, "PeyangMcBansLookup"));
         ClientCommandHandler.instance.registerCommand(new LookupCommands());
