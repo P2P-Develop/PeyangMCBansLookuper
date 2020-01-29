@@ -4,15 +4,15 @@ command.success.reputation = 評価値
 command.success.localbans = ローカルBAN
 command.success.globalbans = グローバルBAN
 
-command.success.developer = 開発者向け
-command.success.developer.processid = プロセスID
-command.success.developer.uuid = UUID
-command.success.developer.datetime = 実行時間
+command.success.developper = 開発者向け
+command.success.developper.processid = プロセスID
+command.success.developper.uuid = UUID
+command.success.developper.datetime = 実行時間
 
-main.init.error.notworkinserver = このModはサーバでは動作しません！
-main.init.error.clientrequired = このModはサーバでは動作しません。クライアント側で実行してください。
-main.init.error.incompatibleserver = このModはサーバサイドでは動作しません。
+main.init.error.notworkinserver = このMODはサーバでは動作しません！
+main.init.error.cliendrequired = このMODはサーバでは動作しません。クライアント側で実行してください。
+main.init.error.compactibleserver = このMODはサーバサイドでは動作しません。
 
-main.init.error.api.setkey = APIキーをセットしてください！
+main.init.error.api.setkey = APiキーをセットしてください！
 
-main.init.success.keybind = 目の前のプレイヤーをルックアップします。
+main.init.successs.keybind = 目の前のプレイヤーをルークアップします。
