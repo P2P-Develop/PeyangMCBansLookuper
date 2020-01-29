@@ -19,7 +19,7 @@ public class Facing
     {
         if (isFacingPlayer(mc))
         {
-            return (EntityPlayer) mc.objectMouseOver.entityHit.getDisplayNameString();
+            return ((EntityPlayer) mc.objectMouseOver.entityHit).getDisplayNameString();
         }
         else
         {

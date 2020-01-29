@@ -15,4 +15,10 @@ main.init.error.incompatibleserver = このModはサーバサイドでは動作�
 
 main.init.error.api.setkey = APIキーをセットしてください！
 
+command.error.teapot = エラー:私はティーポットです！
+command.error.notfoundplayer = エラー:プレイヤーが見つかりませんでした！
+command.error.unknown = エラー:不明
+command.error.servernotf = エラー:MCBansサーバに接続できませんでした。
+comamnd.error.apinotf = APiキーが見つかりませんでした！
+
 main.init.success.keybind = 目の前のプレイヤーをルックアップします。
