@@ -12,14 +12,13 @@ public class Mcbans
     {
         if (requireAPIKEY)
         {
-            String execute = "playerLookup";
-            String url = String.format("http://api.mcbans.com/v3/%s", apikey);
             ArrayList<BodyElement> be = new ArrayList<BodyElement>();
-            be.add(new BodyElement("exec", execute));
+            be.add(new BodyElement("exec", "playerLookup"));
             be.add(new BodyElement("admin", mcid));
             be.add(new BodyElement("player", lookupPlayer));
-            String ret = Border.post(url, "application/x-www-form-urlencoded", be);
-            if (ret.startsWith("{\"result\":\"w\""))
+            if (Border.post(String.format("http://api.mcbans.com/v3/%s", apikey),
+                    "application/x-www-form-urlencoded",
+                    be).startsWith("{\"result\":\"w\""))
             {
                 LookupPerserPlus lp = new LookupPerserPlus();
                 lp.RESULT = LookupPerserPlus.STATUS.PLAYERNOTFOUND;
@@ -53,9 +52,7 @@ public class Mcbans
 
     public static boolean isEnableApiKey (String apikey)
     {
-        String url = String.format("http://api.mcbans.com/v3/%s", apikey);
-        String now = Border.get(url);
-        return now.equals("{\"error\": \"v3: You need to specify a function!\"}");
+        return Border.get(String.format("http://api.mcbans.com/v3/%s", apikey)).equals("{\"error\": \"v3: You need to specify a function!\"}");
     }
 }
 

@@ -45,9 +45,8 @@ public class PeyangMcBansLookuper
         if(e.getSide() == Side.SERVER)
         {
             System.out.println("This mod has not working in server.");
-            BadSideException exception = new BadSideException("This Mod(PML) Is Not Server Side Compatible. Require Client Side.");
-            CrashReport cr = new CrashReport("This Mod(PML) Is Not Server Side Compatible.", exception);
-            Minecraft.getMinecraft().crashed(cr);
+            Minecraft.getMinecraft().crashed(new CrashReport("This Mod(PML) Is Not Server Side Compatible.",
+                    new BadSideException("This Mod(PML) Is Not Server Side Compatible. Require Client Side.")));
         }
         Configuration cfg = new Configuration(e.getSuggestedConfigurationFile());
         try
@@ -62,9 +61,7 @@ public class PeyangMcBansLookuper
 
         if (apikey.equals("edit required!"))
         {
-            BadApikeyException exception = new BadApikeyException("Please Set Api Key.");
-            CrashReport cr = new CrashReport("Please Set Api Key.", exception);
-            Minecraft.getMinecraft().crashed(cr);
+            Minecraft.getMinecraft().crashed(new CrashReport("Please Set Api Key.", new BadApikeyException("Please Set Api Key.")));
         }
     }
 
@@ -73,8 +70,7 @@ public class PeyangMcBansLookuper
     {
         System.out.println("Hello, World!");
         MinecraftForge.EVENT_BUS.register(new Events());
-        lookupKeys = new KeyBinding("Check the player's lookup at", 38, "PeyangMcBansLookup");
-        ClientRegistry.registerKeyBinding(lookupKeys);
+        ClientRegistry.registerKeyBinding(new KeyBinding("Check the player's lookup at", 38, "PeyangMcBansLookup"));
         ClientCommandHandler.instance.registerCommand(new LookupCommands());
         logger = Logger.getLogger(MOD_ID);
     }
