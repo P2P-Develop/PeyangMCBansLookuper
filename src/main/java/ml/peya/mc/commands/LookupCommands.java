@@ -174,20 +174,4 @@ public class LookupCommands extends CommandBase
         return 0;
     }
 
-    /*
-    @Override
-    public String getCommandName()
-    {
-        return func_71517_b();
-    }
-
-
-
-    @Override
-    public void processCommand(ICommandSender iCommandSender, String[] string) throws CommandException
-    {
-        func_71515_b(iCommandSender, string);
-    }
-*/
-
 }

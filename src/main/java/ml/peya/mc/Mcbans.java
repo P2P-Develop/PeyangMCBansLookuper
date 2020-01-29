@@ -16,9 +16,8 @@ public class Mcbans
             be.add(new BodyElement("exec", "playerLookup"));
             be.add(new BodyElement("admin", mcid));
             be.add(new BodyElement("player", lookupPlayer));
-            if (Border.post(String.format("http://api.mcbans.com/v3/%s", apikey),
-                    "application/x-www-form-urlencoded",
-                    be).startsWith("{\"result\":\"w\""))
+            String ret = Border.post(String.format("http://api.mcbans.com/v3/%s", apikey), "application/x-www-form-urlencoded", be);
+            if (ret.startsWith("{\"result\":\"w\""))
             {
                 LookupPerserPlus lp = new LookupPerserPlus();
                 lp.RESULT = LookupPerserPlus.STATUS.PLAYERNOTFOUND;

@@ -9,6 +9,12 @@ command.success.developper.processid = プロセスID
 command.success.developper.uuid = UUID
 command.success.developper.datetime = 実行時間
 
+command.error.teapot = エラー:私はティーポットです！
+command.error.notfoundplayer = エラー:プレイヤーが見つかりませんでした！
+command.error.unknown = エラー:不明
+command.error.servernotf = エラー:MCBansサーバに接続できませんでした。
+comamnd.error.apinotf = APiキーが見つかりませんでした！
+
 main.init.error.notworkinserver = このMODはサーバでは動作しません！
 main.init.error.cliendrequired = このMODはサーバでは動作しません。クライアント側で実行してください。
 main.init.error.compactibleserver = このMODはサーバサイドでは動作しません。
@@ -16,3 +22,4 @@ main.init.error.compactibleserver = このMODはサーバサイドでは動作�
 main.init.error.api.setkey = APiキーをセットしてください！
 
 main.init.successs.keybind = 目の前のプレイヤーをルークアップします。
+main.init.error.tp = 私はティーポットです！:)
