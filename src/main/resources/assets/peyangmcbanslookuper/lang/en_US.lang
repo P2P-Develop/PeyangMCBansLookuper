@@ -1,0 +1,18 @@
+command.success.target = Target
+command.success.totalbans = Bans
+command.success.reputation = Reputation
+command.success.localbans = Local Ban(s)
+command.success.globalbans = Global Ban(s)
+
+command.success.developer = For developers
+command.success.developer.processid = Process ID
+command.success.developer.uuid = UUID
+command.success.developer.datetime = Execution time
+
+main.init.error.notworkinserver = This mod does not work on server!
+main.init.error.clientrequired = This mod does not work on server. please run on the client.
+main.init.error.incompatibleserver = This mod does not work on the server side!
+
+main.init.error.api.setkey = Please set API key!
+
+main.init.success.keybind = Lookup watching player.
