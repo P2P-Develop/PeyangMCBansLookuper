@@ -42,10 +42,10 @@ public class LookupCommands extends CommandBase
                 {
                     String sendername = iCommandSender.getName();
                     String targetname = args[0];
-
-                    if(Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey))
+                    boolean isenableapikey = Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey);
+                    if(isenableapikey)
                     {
-                        LookupParserPlus lpp = Mcbans.lookup(sendername, PeyangMcBansLookuper.apikey, targetname, isenableaapikey);
+                        LookupParserPlus lpp = Mcbans.lookup(sendername, PeyangMcBansLookuper.apikey, targetname, isenableapikey);
 
                         LookupParserPlus.STATUS result = lpp.RESULT;
                         if (result == LookupParserPlus.STATUS.OK)

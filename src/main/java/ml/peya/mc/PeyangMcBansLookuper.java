@@ -33,12 +33,14 @@ public class PeyangMcBansLookuper
     public static final String MOD_ID = "PeyangMcbansLookuper";
     public static final String MOD_NAME = "PeyangMcbansLookuper";
     public static final String MOD_VERSION = "0.0.1";
-    public static final String MOD_DEPENDENCIES = "required-after:Forge@[1.8-11.14.0.1239,)";
+    public static final String MOD_DEPENDENCIES = "required-after:Forge@[1.8-11.15.1.1722,)";
     public static final String MOD_ACCEPTED_MC_VERSIONS = "[1.8,1.8.9]";
     public static KeyBinding lookupKeys;
     public static String apikey = "";
     public static String colours;
     public static Logger logger;
+    public static String FirstColor;
+    public static String SecondColor;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e)
@@ -54,7 +56,8 @@ public class PeyangMcBansLookuper
         {
             cfg.load();
             apikey = cfg.getString("apikey", "core", "edit required!", "The API key to MCBans is necessary for the use.");
-            colours = cfg.getString("name", "category", "color", "description");
+            FirstColor = cfg.getString("name", "colors", "blue", "Name Colors.");
+            SecondColor = cfg.getString("value", "colors", "blue", "Value Colors.");
         }
         finally
         {
