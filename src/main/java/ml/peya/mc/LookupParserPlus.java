@@ -2,9 +2,9 @@ package ml.peya.mc;
 
 import java.util.ArrayList;
 
-public class LookupPerserPlus extends LookupPerser
+public class LookupParserPlus extends LookupParser
 {
-    public LookupPerserPlus.STATUS RESULT;
+    public LookupParserPlus.STATUS RESULT;
     public int total = 0;
     public double reputation = 3.0;
     public ArrayList<String> local = new ArrayList<String>();

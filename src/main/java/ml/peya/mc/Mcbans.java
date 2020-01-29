@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Mcbans
 {
-    public static LookupPerserPlus lookup(String mcid, String apikey, String lookupPlayer, boolean requireAPIKEY)
+    public static LookupParserPlus lookup(String mcid, String apikey, String lookupPlayer, boolean requireAPIKEY)
     {
         if (requireAPIKEY)
         {
@@ -20,14 +20,14 @@ public class Mcbans
                     "application/x-www-form-urlencoded",
                     be).startsWith("{\"result\":\"w\""))
             {
-                LookupPerserPlus lp = new LookupPerserPlus();
-                lp.RESULT = LookupPerserPlus.STATUS.PLAYERNOTFOUND;
+                LookupParserPlus lp = new LookupParserPlus();
+                lp.RESULT = LookupParserPlus.STATUS.PLAYERNOTFOUND;
                 return lp;
             }
 
             Gson gson = new Gson();
-            LookupPerser lp = gson.fromJson(ret, LookupPerser.class);
-            LookupPerserPlus lpp = new LookupPerserPlus();
+            LookupParser lp = gson.fromJson(ret, LookupParser.class);
+            LookupParserPlus lpp = new LookupParserPlus();
             lpp.total = lp.total;
             lpp.reputation = lp.reputation;
             lpp.local = (ArrayList<String>) lp.local;
@@ -38,14 +38,14 @@ public class Mcbans
             lpp.player = lp.player;
             lpp.executionTime = lp.executionTime;
 
-            lpp.RESULT = LookupPerserPlus.STATUS.OK;
+            lpp.RESULT = LookupParserPlus.STATUS.OK;
             return lpp;
 
         }
         else
         {
-            LookupPerserPlus lp = new LookupPerserPlus();
-            lp.RESULT = LookupPerserPlus.STATUS.APIKEYNOTFOUND;
+            LookupParserPlus lp = new LookupParserPlus();
+            lp.RESULT = LookupParserPlus.STATUS.APIKEYNOTFOUND;
             return lp;
         }
     }
