@@ -1,4 +1,4 @@
-  command.success.target = ターゲット
+command.success.target = ターゲット
 command.success.totalbans = Banされた回数
 command.success.reputation = 評価値
 command.success.localbans = ローカルBAN
@@ -18,5 +18,7 @@ command.error.notfoundplayer = エラー: プレイヤーが見つかりませ�
 command.error.unknown = エラー: 不明 https://github.com/peyang-Celeron/PeyangMCBansLookuper/issues にご報告ください。
 command.error.servernotf = エラー: MCBansサーバに接続できませんでした。
 command.error.apinotf = エラー: APiキーが見つかりませんでした！
+command.error.j.teapot = エラー: 私はティーポットです。
+command.error.usage = エラー: 使用法:
 
 main.init.success.keybind = 目の前のプレイヤーをルックアップします。

@@ -10,6 +10,7 @@ public class Mcbans
 {
     public static LookupParserPlus lookup(String mcid, String apikey, String lookupPlayer, boolean requireAPIKEY)
     {
+
         if (requireAPIKEY)
         {
             ArrayList<BodyElement> be = new ArrayList<BodyElement>();

@@ -4,9 +4,9 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class ColorEnum
 {
-    public EnumChatFormatting fromString (String colorStirng)
+    public static EnumChatFormatting fromString (String colorString)
     {
-        switch (colorStirng)
+        switch (colorString)
         {
             case "aqua":
                 return EnumChatFormatting.AQUA;
@@ -36,11 +36,11 @@ public class ColorEnum
                 return EnumChatFormatting.LIGHT_PURPLE;
             case "red":
                 return EnumChatFormatting.RED;
+            case "yellow":
+                return EnumChatFormatting.YELLOW;
             default:
             case "white":
                 return EnumChatFormatting.WHITE;
-            case "yellow":
-                return EnumChatFormatting.YELLOW;
         }
     }
 }

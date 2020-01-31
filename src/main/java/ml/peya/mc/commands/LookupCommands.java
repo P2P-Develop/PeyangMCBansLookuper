@@ -1,14 +1,12 @@
 package ml.peya.mc.commands;
 
 import ml.peya.mc.*;
+import ml.peya.mc.netty.Border;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.event.ClickEvent;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +43,11 @@ public class LookupCommands extends CommandBase
                     boolean isenableapikey = Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey);
                     if(isenableapikey)
                     {
+                        if (Border.get("https://api.mcbans.com/v3").equals(""))
+                        {
+                            Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.servernotf")), iCommandSender);
+                            return;
+                        }
                         LookupParserPlus lpp = Mcbans.lookup(sendername, PeyangMcBansLookuper.apikey, targetname, isenableapikey);
 
                         LookupParserPlus.STATUS result = lpp.RESULT;
@@ -61,10 +64,10 @@ public class LookupCommands extends CommandBase
                             String mcid = lpp.player;
                             double datetime = lpp.executionTime;
                             Player.sendMessage(ChatBuilder.getInPrefix(), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + "Target", EnumChatFormatting.BLUE + mcid), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + "TotalBas", EnumChatFormatting.BLUE + String.valueOf(totalbans)), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + "Reputation", EnumChatFormatting.BLUE + String.valueOf(reputation) + "/10.0"), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + "LocalBans", localflag ? "" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.target"), EnumChatFormatting.BLUE + mcid), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.totalbans"), EnumChatFormatting.BLUE + String.valueOf(totalbans)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.reputation"), EnumChatFormatting.BLUE + String.valueOf(reputation) + "/10.0"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.localbans"), localflag ? "" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
                             if (localflag)
                             {
                                 for (String local : localbans)
@@ -82,7 +85,7 @@ public class LookupCommands extends CommandBase
                                     //Player.sendMessage(ChatBuilder.getSectionInBans(1, EnumChatFormatting.RED + "#" + id, EnumChatFormatting.LIGHT_PURPLE + ip, EnumChatFormatting.WHITE + reason), iCommandSender);
                                 }
                             }
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + "GlobalBans", globalflag ? "\n" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.globalbans"), globalflag ? "\n" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
                             if (globalflag)
                             {
                                 for (String global : globalbans)
@@ -101,26 +104,23 @@ public class LookupCommands extends CommandBase
 
                                 }
                             }
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + "Developer", "\n"), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + "ProcessID", EnumChatFormatting.DARK_AQUA + String.valueOf(processid)), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + "UniversallyUniqueID", EnumChatFormatting.DARK_AQUA + uuid), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + "DateTime", EnumChatFormatting.DARK_AQUA + String.valueOf(datetime)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.developer"), "\n"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + StatCollector.translateToLocal("command.success.developer.processid"), EnumChatFormatting.DARK_AQUA + String.valueOf(processid)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + StatCollector.translateToLocal("command.success.developer.uuid"), EnumChatFormatting.DARK_AQUA + uuid), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + StatCollector.translateToLocal("command.success.developer.datetime"), EnumChatFormatting.DARK_AQUA + String.valueOf(datetime)), iCommandSender);
                         }
                         else
                         {
                             switch (result)
                             {
                                 case I_AM_A_TEAPOT:
-                                    Player.sendMessage(ChatBuilder.error("E: I'am a teapot."), iCommandSender);
+                                    Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.j.teapot")), iCommandSender);
                                     break;
                                 case PLAYERNOTFOUND:
-                                    Player.sendMessage(ChatBuilder.error("E: Player Not Found."), iCommandSender);
+                                    Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.notfoundplayer")), iCommandSender);
                                     break;
                                 case UNKNOWNERROR:
-                                    Player.sendMessage(ChatBuilder.error("E: Unknown Error."), iCommandSender);
-                                    break;
-                                case UNKNOWNHOST:
-                                    Player.sendMessage(ChatBuilder.error("E: Mcbans Server Is Not Working."), iCommandSender);
+                                    Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.unknown")), iCommandSender);
                                     break;
                             }
                         }
@@ -128,7 +128,7 @@ public class LookupCommands extends CommandBase
                     else
 
                     {
-                        Player.sendMessage(ChatBuilder.error("E: ApiKey has Not Found."), iCommandSender);
+                        Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.apinotf")), iCommandSender);
                     }
                 }
 
@@ -137,7 +137,7 @@ public class LookupCommands extends CommandBase
         }
         else
         {
-            Player.sendMessage(ChatBuilder.error("E: usage: " + getCommandUsage(iCommandSender)), iCommandSender);
+            Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.usage") + getCommandUsage(iCommandSender)), iCommandSender);
         }
     }
 

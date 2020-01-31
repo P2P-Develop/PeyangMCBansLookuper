@@ -17,6 +17,8 @@ command.error.teapot = Error: I'm a teapot.
 command.error.notfoundplayer = Error: Player not found!
 command.error.unknown = Error: Unknown Please post issue to https://github.com/peyang-Celeron/PeyangMCBansLookuper/issues
 command.error.servernotf = Error: Unable to connect to MCBans.
-command.error.apinotf = API Key not found!
+command.error.apinotf = Error: API Key not found!
+command.error.j.teapot = Error: i'am a teapot.
+command.error.usage = Error: Usage:
 
 main.init.success.keybind = Lookup watching player.

@@ -6,6 +6,7 @@ import ml.peya.mc.exception.BadSideException;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.crash.CrashReport;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -56,8 +57,8 @@ public class PeyangMcBansLookuper
         {
             cfg.load();
             apikey = cfg.getString("apikey", "core", "edit required!", "The API key to MCBans is necessary for the use.");
-            FirstColor = cfg.getString("name", "colors", "blue", "Name Colors.");
-            SecondColor = cfg.getString("value", "colors", "blue", "Value Colors.");
+            FirstColor = cfg.getString("name", "color", "blue", "Name Colors.");
+            SecondColor = cfg.getString("value", "color", "blue", "Value Colors.");
         }
         finally
         {
@@ -66,7 +67,7 @@ public class PeyangMcBansLookuper
 
         if (apikey.equals("edit required!"))
         {
-            Minecraft.getMinecraft().crashed(new CrashReport("Please Set Api Key.", new BadApikeyException("Please Set Api Key.")));
+            Minecraft.getMinecraft().crashed(new CrashReport(StatCollector.translateToLocal("command.error.apinotf"), new BadApikeyException((StatCollector.translateToLocal("command.error.apinotf")))));
         }
     }
 
@@ -74,7 +75,7 @@ public class PeyangMcBansLookuper
     public void init(FMLInitializationEvent e)
     {
         MinecraftForge.EVENT_BUS.register(new Events());
-        ClientRegistry.registerKeyBinding(new KeyBinding("Check the player's lookup at", 38, "PeyangMcBansLookup"));
+        ClientRegistry.registerKeyBinding(new KeyBinding(StatCollector.translateToLocal("main.init.success.keybind"), 38, "PeyangMcBansLookup"));
         ClientCommandHandler.instance.registerCommand(new LookupCommands());
         logger = Logger.getLogger(MOD_ID);
     }
