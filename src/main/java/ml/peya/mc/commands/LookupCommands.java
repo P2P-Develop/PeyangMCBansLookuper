@@ -44,7 +44,7 @@ public class LookupCommands extends CommandBase
                     boolean isenableapikey = Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey);
                     if(isenableapikey)
                     {
-                        if (Border.get("https://api.mcbans.com/v3").equals(""))
+                        if (Border.get("https://api.mcbans.com/v3").startsWith("<html><head><title>500 Internal Server Error"))
                         {
                             Player.sendMessage(ChatBuilder.error(I18n.format("command.error.servernotf")), iCommandSender);
                             return;

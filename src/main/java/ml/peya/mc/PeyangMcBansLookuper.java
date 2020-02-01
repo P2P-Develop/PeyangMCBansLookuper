@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.crash.CrashReport;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,8 +42,8 @@ public class PeyangMcBansLookuper
     public static String apikey = "";
     public static String colours;
     public static Logger logger;
-    public static String FirstColor;
-    public static String SecondColor;
+    public static EnumChatFormatting FirstColor;
+    public static EnumChatFormatting SecondColor;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e)
@@ -58,8 +59,9 @@ public class PeyangMcBansLookuper
         {
             cfg.load();
             apikey = cfg.getString("apikey", "core", "edit required!", "The API key to MCBans is necessary for the use.");
-            FirstColor = cfg.getString("name", "color", "blue", "Name Colors.");
-            SecondColor = cfg.getString("value", "color", "blue", "Value Colors.");
+            FirstColor = ColorEnum.fromString(cfg.getString("name", "color", "blue", "Name Colors."));
+            SecondColor = ColorEnum.fromString(cfg.getString("name", "color", "blue", "Name Colors."));
+
         }
         finally
         {
