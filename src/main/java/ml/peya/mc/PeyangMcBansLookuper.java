@@ -4,6 +4,7 @@ import ml.peya.mc.commands.LookupCommands;
 import ml.peya.mc.exception.BadApikeyException;
 import ml.peya.mc.exception.BadSideException;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.util.StatCollector;
@@ -67,7 +68,7 @@ public class PeyangMcBansLookuper
 
         if (apikey.equals("edit required!"))
         {
-            Minecraft.getMinecraft().crashed(new CrashReport(StatCollector.translateToLocal("command.error.apinotf"), new BadApikeyException((StatCollector.translateToLocal("command.error.apinotf")))));
+            Minecraft.getMinecraft().crashed(new CrashReport(I18n.format("command.error.apinotf"), new BadApikeyException((I18n.format("command.error.apinotf")))));
         }
     }
 
@@ -75,7 +76,8 @@ public class PeyangMcBansLookuper
     public void init(FMLInitializationEvent e)
     {
         MinecraftForge.EVENT_BUS.register(new Events());
-        ClientRegistry.registerKeyBinding(new KeyBinding(StatCollector.translateToLocal("main.init.success.keybind"), 38, "PeyangMcBansLookup"));
+        lookupKeys = new KeyBinding(I18n.format("main.init.success.keybind"), 38, "PeyangMcBansLookup");
+        ClientRegistry.registerKeyBinding(lookupKeys);
         ClientCommandHandler.instance.registerCommand(new LookupCommands());
         logger = Logger.getLogger(MOD_ID);
     }

@@ -2,6 +2,7 @@ package ml.peya.mc.commands;
 
 import ml.peya.mc.*;
 import ml.peya.mc.netty.Border;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -45,7 +46,7 @@ public class LookupCommands extends CommandBase
                     {
                         if (Border.get("https://api.mcbans.com/v3").equals(""))
                         {
-                            Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.servernotf")), iCommandSender);
+                            Player.sendMessage(ChatBuilder.error(I18n.format("command.error.servernotf")), iCommandSender);
                             return;
                         }
                         LookupParserPlus lpp = Mcbans.lookup(sendername, PeyangMcBansLookuper.apikey, targetname, isenableapikey);
@@ -64,10 +65,10 @@ public class LookupCommands extends CommandBase
                             String mcid = lpp.player;
                             double datetime = lpp.executionTime;
                             Player.sendMessage(ChatBuilder.getInPrefix(), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.target"), EnumChatFormatting.BLUE + mcid), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.totalbans"), EnumChatFormatting.BLUE + String.valueOf(totalbans)), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.reputation"), EnumChatFormatting.BLUE + String.valueOf(reputation) + "/10.0"), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.localbans"), localflag ? "" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.target"), EnumChatFormatting.BLUE + mcid), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.totalbans"), EnumChatFormatting.BLUE + String.valueOf(totalbans)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.reputation"), EnumChatFormatting.BLUE + String.valueOf(reputation) + "/10.0"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.localbans"), localflag ? "" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
                             if (localflag)
                             {
                                 for (String local : localbans)
@@ -85,7 +86,7 @@ public class LookupCommands extends CommandBase
                                     //Player.sendMessage(ChatBuilder.getSectionInBans(1, EnumChatFormatting.RED + "#" + id, EnumChatFormatting.LIGHT_PURPLE + ip, EnumChatFormatting.WHITE + reason), iCommandSender);
                                 }
                             }
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.globalbans"), globalflag ? "\n" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.globalbans"), globalflag ? "" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
                             if (globalflag)
                             {
                                 for (String global : globalbans)
@@ -104,23 +105,23 @@ public class LookupCommands extends CommandBase
 
                                 }
                             }
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + StatCollector.translateToLocal("command.success.developer"), "\n"), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + StatCollector.translateToLocal("command.success.developer.processid"), EnumChatFormatting.DARK_AQUA + String.valueOf(processid)), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + StatCollector.translateToLocal("command.success.developer.uuid"), EnumChatFormatting.DARK_AQUA + uuid), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + StatCollector.translateToLocal("command.success.developer.datetime"), EnumChatFormatting.DARK_AQUA + String.valueOf(datetime)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.developer"), ""), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + I18n.format("command.success.developer.processid"), EnumChatFormatting.DARK_AQUA + String.valueOf(processid)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + I18n.format("command.success.developer.uuid"), EnumChatFormatting.DARK_AQUA + uuid), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + I18n.format("command.success.developer.datetime"), EnumChatFormatting.DARK_AQUA + String.valueOf(datetime)), iCommandSender);
                         }
                         else
                         {
                             switch (result)
                             {
                                 case I_AM_A_TEAPOT:
-                                    Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.j.teapot")), iCommandSender);
+                                    Player.sendMessage(ChatBuilder.error(I18n.format("command.error.j.teapot")), iCommandSender);
                                     break;
                                 case PLAYERNOTFOUND:
-                                    Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.notfoundplayer")), iCommandSender);
+                                    Player.sendMessage(ChatBuilder.error(I18n.format("command.error.notfoundplayer")), iCommandSender);
                                     break;
                                 case UNKNOWNERROR:
-                                    Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.unknown")), iCommandSender);
+                                    Player.sendMessage(ChatBuilder.error(I18n.format("command.error.unknown")), iCommandSender);
                                     break;
                             }
                         }
@@ -128,7 +129,7 @@ public class LookupCommands extends CommandBase
                     else
 
                     {
-                        Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.apinotf")), iCommandSender);
+                        Player.sendMessage(ChatBuilder.error(I18n.format("command.error.apinotf")), iCommandSender);
                     }
                 }
 
@@ -137,7 +138,7 @@ public class LookupCommands extends CommandBase
         }
         else
         {
-            Player.sendMessage(ChatBuilder.error(StatCollector.translateToLocal("command.error.usage") + getCommandUsage(iCommandSender)), iCommandSender);
+            Player.sendMessage(ChatBuilder.error(I18n.format("command.error.usage") + getCommandUsage(iCommandSender)), iCommandSender);
         }
     }
 
