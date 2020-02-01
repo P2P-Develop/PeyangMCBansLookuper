@@ -26,7 +26,7 @@ public class McBansParser
         McBansParser mcBansParser = new McBansParser();
         mcBansParser.id = Integer.parseInt(id.substring(1));
         mcBansParser.ip = ip;
-        mcBansParser.reason = String.join(", ", reasons);
+        mcBansParser.reason = String.join(" ", reasons);
         return mcBansParser;
     }
 }

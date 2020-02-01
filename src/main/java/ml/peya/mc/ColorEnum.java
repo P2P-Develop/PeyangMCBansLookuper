@@ -1,6 +1,9 @@
 package ml.peya.mc;
 
+import akka.dispatch.Foreach;
 import net.minecraft.util.EnumChatFormatting;
+
+import java.util.ArrayList;
 
 public class ColorEnum
 {
@@ -39,12 +42,15 @@ public class ColorEnum
         else
             return EnumChatFormatting.WHITE;
 
+    }
 
-
-
-
-
-
-
+    public static ArrayList<EnumChatFormatting> fromString(String[] colorString)
+    {
+        ArrayList<EnumChatFormatting> color = new ArrayList<EnumChatFormatting>();
+        for(String colors : colorString)
+        {
+           color.add(fromString(colors));
+        }
+        return color;
     }
 }

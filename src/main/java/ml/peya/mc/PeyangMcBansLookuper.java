@@ -10,6 +10,7 @@ import net.minecraft.crash.CrashReport;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 @Mod(modid = PeyangMcBansLookuper.MOD_ID,
@@ -42,9 +44,9 @@ public class PeyangMcBansLookuper
     public static String apikey = "";
     public static String colours;
     public static Logger logger;
-    public static EnumChatFormatting FirstColor;
-    public static EnumChatFormatting SecondColor;
-
+    public static EnumChatFormatting firstColor;
+    public static EnumChatFormatting secondColor;
+    public static ArrayList<EnumChatFormatting> banColor;
     @EventHandler
     public void preInit(FMLPreInitializationEvent e)
     {
@@ -59,9 +61,9 @@ public class PeyangMcBansLookuper
         {
             cfg.load();
             apikey = cfg.getString("apikey", "core", "edit required!", "The API key to MCBans is necessary for the use.");
-            FirstColor = ColorEnum.fromString(cfg.getString("name", "color", "blue", "Name Colors."));
-            SecondColor = ColorEnum.fromString(cfg.getString("name", "color", "blue", "Name Colors."));
-
+            firstColor = ColorEnum.fromString(cfg.getString("firstColor", "color", "aqua", "Name Colors."));
+            secondColor = ColorEnum.fromString(cfg.getString("secondColor", "color", "blue", "Name Colors."));
+            banColor = ColorEnum.fromString(cfg.getStringList("BanColor", "color", new String[]{"red", "light_purple", "yellow", "white"}, "Ban Section Colors."));
         }
         finally
         {

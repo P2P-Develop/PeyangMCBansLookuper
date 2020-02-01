@@ -65,10 +65,10 @@ public class LookupCommands extends CommandBase
                             String mcid = lpp.player;
                             double datetime = lpp.executionTime;
                             Player.sendMessage(ChatBuilder.getInPrefix(), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.target"), EnumChatFormatting.BLUE + mcid), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.totalbans"), EnumChatFormatting.BLUE + String.valueOf(totalbans)), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.reputation"), EnumChatFormatting.BLUE + String.valueOf(reputation) + "/10.0"), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.localbans"), localflag ? "" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.target"), PeyangMcBansLookuper.secondColor + mcid), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.totalbans"), PeyangMcBansLookuper.secondColor + String.valueOf(totalbans)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.reputation"), PeyangMcBansLookuper.secondColor + String.valueOf(reputation) + "/10.0"), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.localbans"), localflag ? "" : PeyangMcBansLookuper.secondColor + "N/A"), iCommandSender);
                             if (localflag)
                             {
                                 for (String local : localbans)
@@ -77,17 +77,15 @@ public class LookupCommands extends CommandBase
                                     int id = mcBansParser.id;
                                     String ip = mcBansParser.ip;
                                     String reason = mcBansParser.reason;
-                                    IChatComponent banning = new ChatComponentText(EnumChatFormatting.RED + "#" + id);
+                                    IChatComponent banning = new ChatComponentText(PeyangMcBansLookuper.banColor.get(0) + "#" + id);
                                     ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://mcbans.com/ban/" + id));
                                     banning.setChatStyle(style);
-                                    IChatComponent comps = new ChatComponentText(" " + EnumChatFormatting.LIGHT_PURPLE + ip + "   .:.   " + EnumChatFormatting.WHITE + reason);
+                                    IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + "   " + PeyangMcBansLookuper.banColor.get(2) + ".:." + PeyangMcBansLookuper.banColor.get(3) + reason);
                                     banning.appendSibling(comps);
                                     iCommandSender.addChatMessage(banning);
                                     //Player.sendMessage(ChatBuilder.getSectionInBans(1, EnumChatFormatting.RED + "#" + id, EnumChatFormatting.LIGHT_PURPLE + ip, EnumChatFormatting.WHITE + reason), iCommandSender);
                                 }
                             }
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.globalbans"), globalflag ? "" : EnumChatFormatting.BLUE + "N/A"), iCommandSender);
-                            if (globalflag)
                             {
                                 for (String global : globalbans)
                                 {
@@ -95,20 +93,20 @@ public class LookupCommands extends CommandBase
                                     int id = mcBansParser.id;
                                     String ip = mcBansParser.ip;
                                     String reason = mcBansParser.reason;
-                                    IChatComponent banning = new ChatComponentText(EnumChatFormatting.RED + "#" + id);
+                                    IChatComponent banning = new ChatComponentText(PeyangMcBansLookuper.banColor.get(0) + "#" + id);
                                     ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://mcbans.com/ban/" + id));
                                     banning.setChatStyle(style);
-                                    IChatComponent comps = new ChatComponentText(" " + EnumChatFormatting.LIGHT_PURPLE + ip + "   .:.   " + EnumChatFormatting.WHITE + reason);
+                                    IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + "   " + PeyangMcBansLookuper.banColor.get(2) + ".:." + PeyangMcBansLookuper.banColor.get(3) + reason);
                                     banning.appendSibling(comps);
                                     iCommandSender.addChatMessage(banning);
                                     //Player.sendMessage(ChatBuilder.getSectionInBans(1, EnumChatFormatting.RED + "#" + id, EnumChatFormatting.LIGHT_PURPLE + ip, EnumChatFormatting.WHITE + reason), iCommandSender);
 
                                 }
                             }
-                            Player.sendMessage(ChatBuilder.getPrefix(0, EnumChatFormatting.AQUA + I18n.format("command.success.developer"), ""), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + I18n.format("command.success.developer.processid"), EnumChatFormatting.DARK_AQUA + String.valueOf(processid)), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + I18n.format("command.success.developer.uuid"), EnumChatFormatting.DARK_AQUA + uuid), iCommandSender);
-                            Player.sendMessage(ChatBuilder.getPrefix(1, EnumChatFormatting.BLUE + I18n.format("command.success.developer.datetime"), EnumChatFormatting.DARK_AQUA + String.valueOf(datetime)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.developer"), ""), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.processid"), EnumChatFormatting.DARK_AQUA + String.valueOf(processid)), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.uuid"), EnumChatFormatting.DARK_AQUA + uuid), iCommandSender);
+                            Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.datetime"), EnumChatFormatting.DARK_AQUA + String.valueOf(datetime)), iCommandSender);
                         }
                         else
                         {
