@@ -1,24 +1,24 @@
-command.success.target = ターゲット
-command.success.totalbans = Banされた回数
-command.success.reputation = 評価値
-command.success.localbans = ローカルBAN
-command.success.globalbans = グローバルBAN
+command.success.target=ターゲット
+command.success.totalbans=Banされた回数
+command.success.reputation=評価値
+command.success.localbans=ローカルBAN
+command.success.globalbans=グローバルBAN
 
-command.success.developer = 開発者向け
-command.success.developer.processid = プロセスID
-command.success.developer.uuid = UUID
-command.success.developer.datetime = 実行時間
+command.success.developer=開発者向け
+command.success.developer.processid=プロセスID
+command.success.developer.uuid=UUID
+command.success.developer.datetime=実行時間
 
-main.init.error.notworkinserver = このModはサーバでは動作しません！
-main.init.error.clientrequired = このModはサーバでは動作しません。クライアント側で実行してください。
-main.init.error.incompatibleserver = このModはサーバサイドでは動作しません。
+main.init.error.notworkinserver=このModはサーバでは動作しません！
+main.init.error.clientrequired=このModはサーバでは動作しません。クライアント側で実行してください。
+main.init.error.incompatibleserver=このModはサーバサイドでは動作しません。
 
-command.error.teapot = エラー: 私はティーポットです！
-command.error.notfoundplayer = エラー: プレイヤーが見つかりませんでした！
-command.error.unknown = エラー: 不明 https://github.com/peyang-Celeron/PeyangMCBansLookuper/issues にご報告ください。
-command.error.servernotf = エラー: MCBansサーバに接続できませんでした。
-command.error.apinotf = エラー: APiキーが見つかりませんでした！
-command.error.j.teapot = エラー: 私はティーポットです。
-command.error.usage = エラー: 使用法:
+command.error.teapot=エラー: 私はティーポットです！
+command.error.notfoundplayer=エラー: プレイヤーが見つかりませんでした！
+command.error.unknown=エラー: 不明 https://github.com/peyang-Celeron/PeyangMCBansLookuper/issues にご報告ください。
+command.error.servernotf=エラー: MCBansサーバに接続できませんでした。
+command.error.apinotf=エラー: APiキーが見つかりませんでした！
+command.error.j.teapot=エラー: 私はティーポットです。
+command.error.usage=エラー: 使用法:
 
-main.init.success.keybind = 目の前のプレイヤーをルックアップします。
+main.init.success.keybind=目の前のプレイヤーをルックアップします。
