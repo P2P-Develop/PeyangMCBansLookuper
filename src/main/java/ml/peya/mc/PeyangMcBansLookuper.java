@@ -62,7 +62,7 @@ public class PeyangMcBansLookuper
             cfg.load();
             apikey = cfg.getString("apikey", "core", "edit required!", "The API key to MCBans is necessary for the use.");
             firstColor = ColorEnum.fromString(cfg.getString("firstColor", "color", "aqua", "Name Colors."));
-            secondColor = ColorEnum.fromString(cfg.getString("secondColor", "color", "blue", "Name Colors."));
+            secondColor = ColorEnum.fromString(cfg.getString("secondColor", "color", "blue", "Value Colors."));
             banColor = ColorEnum.fromString(cfg.getStringList("BanColor", "color", new String[]{"red", "light_purple", "yellow", "white"}, "Ban Section Colors."));
         }
         finally

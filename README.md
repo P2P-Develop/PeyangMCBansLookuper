@@ -17,3 +17,5 @@ This mod is lookup McBans player data on the chat screen.
 
 # THIS MOD USES MCBANS API
 [MCBans](http://mcbans.com/)
+
+# Project Language Level: 8

@@ -14,7 +14,10 @@ import java.util.List;
 
 public class LookupCommands extends CommandBase
 {
-
+    //意味のない変数があると思う。
+    //それは,McbansAPIの負担を減らすためである。
+    //2度以上、同じ内容でAPIサーバに接続するのであれば
+    //変数化してほしい。
 
     private ArrayList<String> aliases = new ArrayList<String>();
 
@@ -44,7 +47,9 @@ public class LookupCommands extends CommandBase
                     boolean isenableapikey = Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey);
                     if(isenableapikey)
                     {
-                        if (Border.get("https://api.mcbans.com/v3").startsWith("<html><head><title>500 Internal Server Error"))
+                        String isServernotFound = Border.get("https://api.mcbans.com/v3");
+                        boolean isServernf = isServernotFound.startsWith("<html><head><title>500 Internal Server Error");
+                        if (isServernotFound.startsWith("<html><head><title>500 Internal Server Error"))
                         {
                             Player.sendMessage(ChatBuilder.error(I18n.format("command.error.servernotf")), iCommandSender);
                             return;
@@ -80,10 +85,9 @@ public class LookupCommands extends CommandBase
                                     IChatComponent banning = new ChatComponentText(PeyangMcBansLookuper.banColor.get(0) + "#" + id);
                                     ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://mcbans.com/ban/" + id));
                                     banning.setChatStyle(style);
-                                    IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + "   " + PeyangMcBansLookuper.banColor.get(2) + ".:." + PeyangMcBansLookuper.banColor.get(3) + reason);
+                                    IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + reason);
                                     banning.appendSibling(comps);
                                     iCommandSender.addChatMessage(banning);
-                                    //Player.sendMessage(ChatBuilder.getSectionInBans(1, EnumChatFormatting.RED + "#" + id, EnumChatFormatting.LIGHT_PURPLE + ip, EnumChatFormatting.WHITE + reason), iCommandSender);
                                 }
                             }
                             {
@@ -96,7 +100,7 @@ public class LookupCommands extends CommandBase
                                     IChatComponent banning = new ChatComponentText(PeyangMcBansLookuper.banColor.get(0) + "#" + id);
                                     ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://mcbans.com/ban/" + id));
                                     banning.setChatStyle(style);
-                                    IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + "   " + PeyangMcBansLookuper.banColor.get(2) + ".:." + PeyangMcBansLookuper.banColor.get(3) + reason);
+                                    IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + reason);
                                     banning.appendSibling(comps);
                                     iCommandSender.addChatMessage(banning);
                                     //Player.sendMessage(ChatBuilder.getSectionInBans(1, EnumChatFormatting.RED + "#" + id, EnumChatFormatting.LIGHT_PURPLE + ip, EnumChatFormatting.WHITE + reason), iCommandSender);
