@@ -103,7 +103,6 @@ public class LookupCommands extends CommandBase
                                     IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + reason);
                                     banning.appendSibling(comps);
                                     iCommandSender.addChatMessage(banning);
-                                    //Player.sendMessage(ChatBuilder.getSectionInBans(1, EnumChatFormatting.RED + "#" + id, EnumChatFormatting.LIGHT_PURPLE + ip, EnumChatFormatting.WHITE + reason), iCommandSender);
 
                                 }
                             }
@@ -154,7 +153,7 @@ public class LookupCommands extends CommandBase
     @Override
     public String getCommandUsage(ICommandSender iCommandSender)
     {
-        return "/lookup <PlayerName>";
+        return "/lookup <playername>";
     }
 
     @Override
