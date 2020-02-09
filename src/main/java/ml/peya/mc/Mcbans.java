@@ -1,6 +1,7 @@
 package ml.peya.mc;
 
 import com.google.gson.Gson;
+import ml.peya.mc.commands.BanLookupCommands;
 import ml.peya.mc.netty.BodyElement;
 import ml.peya.mc.netty.Border;
 
@@ -53,6 +54,46 @@ public class Mcbans
     public static boolean isEnableApiKey (String apikey)
     {
         return Border.get(String.format("http://api.mcbans.com/v3/%s", apikey)).equals("{\"error\": \"v3: You need to specify a function!\"}");
+    }
+
+    public static BanLookupParserPlus banlookup(String mcid, String apikey, int banId, boolean requireAPIKEY)
+    {
+
+        if (requireAPIKEY)
+        {
+            ArrayList<BodyElement> be = new ArrayList<BodyElement>();
+            be.add(new BodyElement("exec", "banLookup"));
+            be.add(new BodyElement("admin", mcid));
+            be.add(new BodyElement("ban", banId));
+            String ret = Border.post(String.format("http://api.mcbans.com/v3/%s", apikey), "application/x-www-form-urlencoded", be);
+            if (ret.startsWith("{\"error\""))
+            {
+                BanLookupParserPlus lp = new BanLookupParserPlus();
+                lp.RESULT = BanLookupParserPlus.STATUS.BANNOTFOUND;
+                return lp;
+            }
+
+            Gson gson = new Gson();
+            BanLookupParser lp = gson.fromJson(ret, BanLookupParser.class);
+            BanLookupParserPlus lpp = new BanLookupParserPlus();
+            lpp.admin = lp.admin;
+            lpp.date = lp.date;
+            lpp.executionTime = lp.executionTime;
+            lpp.player = lp.player;
+            lpp.reason = lp.reason;
+            lpp.reploss = lp.reploss;
+            lpp.server = lp.server;
+            lpp.type = lp.type;
+            lpp.RESULT = BanLookupParserPlus.STATUS.OK;
+            return lpp;
+
+        }
+        else
+        {
+            BanLookupParserPlus lp = new BanLookupParserPlus();
+            lp.RESULT = BanLookupParserPlus.STATUS.APIKEYNOTFOUND;
+            return lp;
+        }
     }
 }
 
