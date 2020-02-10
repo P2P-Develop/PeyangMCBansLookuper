@@ -85,7 +85,7 @@ processResources
 
 apply plugin: 'java'
 
-jar.baseName = 'PeyangMcBansLookuper1.0.0-MC1.8.x'
+jar.baseName = 'PeyangMcBansLookuper-MC1.8.x'
 version = '1.0.0'
 
 dependencies {

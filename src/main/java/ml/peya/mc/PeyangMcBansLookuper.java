@@ -1,5 +1,6 @@
 package ml.peya.mc;
 
+import ml.peya.mc.commands.BanLookupCommands;
 import ml.peya.mc.commands.LookupCommands;
 import ml.peya.mc.exception.BadApikeyException;
 import ml.peya.mc.exception.BadSideException;
@@ -83,6 +84,7 @@ public class PeyangMcBansLookuper
         lookupKeys = new KeyBinding(I18n.format("main.init.success.keybind"), 38, "PeyangMcBansLookup");
         ClientRegistry.registerKeyBinding(lookupKeys);
         ClientCommandHandler.instance.registerCommand(new LookupCommands());
+        ClientCommandHandler.instance.registerCommand(new BanLookupCommands());
         logger = Logger.getLogger(MOD_ID);
     }
 
