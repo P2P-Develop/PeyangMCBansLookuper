@@ -1,14 +1,13 @@
 package ml.peya.mc.commands;
 
-import com.sun.org.apache.bcel.internal.generic.I2D;
 import ml.peya.mc.*;
-import ml.peya.mc.netty.BodyElement;
 import ml.peya.mc.netty.Border;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.event.ClickEvent;
+import net.minecraft.event.HoverEvent;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
@@ -19,11 +18,6 @@ import java.util.List;
 
 public class BanLookupCommands extends CommandBase
 {
-    //意味のない変数があると思う。
-    //それは,McbansAPIの負担を減らすためである。
-    //2度以上、同じ内容でAPIサーバに接続するのであれば
-    //変数化してほしい。
-
     private ArrayList<String> aliases = new ArrayList<String>();
 
     public BanLookupCommands()
@@ -104,8 +98,10 @@ public class BanLookupCommands extends CommandBase
                             Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.target"), PeyangMcBansLookuper.secondColor + "#" + banIdsf), iCommandSender);
                             Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.banlp.reason"), PeyangMcBansLookuper.secondColor + reason.replace("ENDS", I18n.format("command.success.banlp.end"))), iCommandSender);
                             IChatComponent banning = new ChatComponentText(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.banlp.admin"), PeyangMcBansLookuper.secondColor + admin));
-                            ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/lp " + admin));
-                            banning.setChatStyle(style);
+                            ChatStyle mouse = new ChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText("Click to execute PlayerLookup Command.")));
+                            mouse.setChatClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/lp " + admin));
+                            banning.setChatStyle(mouse);
+
                             iCommandSender.addChatMessage(banning);
                             Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.banlp.server"), PeyangMcBansLookuper.secondColor + server), iCommandSender);
                             Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.banlp.date"), PeyangMcBansLookuper.secondColor + date), iCommandSender);

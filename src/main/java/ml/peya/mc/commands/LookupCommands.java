@@ -7,6 +7,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.event.ClickEvent;
+import net.minecraft.event.HoverEvent;
 import net.minecraft.util.*;
 
 import java.util.ArrayList;
@@ -14,10 +15,6 @@ import java.util.List;
 
 public class LookupCommands extends CommandBase
 {
-    //意味のない変数があると思う。
-    //それは,McbansAPIの負担を減らすためである。
-    //2度以上、同じ内容でAPIサーバに接続するのであれば
-    //変数化してほしい。
 
     private ArrayList<String> aliases = new ArrayList<String>();
 
@@ -83,8 +80,9 @@ public class LookupCommands extends CommandBase
                                     String ip = mcBansParser.ip;
                                     String reason = mcBansParser.reason;
                                     IChatComponent banning = new ChatComponentText(PeyangMcBansLookuper.banColor.get(0) + "#" + id);
-                                    ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/bl " + id));
-                                    banning.setChatStyle(style);
+                                    ChatStyle mouse = new ChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText("Click to execute BanLookup Command.")));
+                                    mouse.setChatClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/banlookup " + id));
+                                    banning.setChatStyle(mouse);
                                     IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + reason);
                                     banning.appendSibling(comps);
                                     iCommandSender.addChatMessage(banning);
@@ -98,8 +96,9 @@ public class LookupCommands extends CommandBase
                                     String ip = mcBansParser.ip;
                                     String reason = mcBansParser.reason;
                                     IChatComponent banning = new ChatComponentText(PeyangMcBansLookuper.banColor.get(0) + "#" + id);
-                                    ChatStyle style = new ChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/lb " + id));
-                                    banning.setChatStyle(style);
+                                    ChatStyle mouse = new ChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText("Click to execute BanLookup Command.")));
+                                    mouse.setChatClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/banlookup " + id));
+                                    banning.setChatStyle(mouse);
                                     IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + reason);
                                     banning.appendSibling(comps);
                                     iCommandSender.addChatMessage(banning);
