@@ -3,7 +3,8 @@ package ml.peya.mc;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BanLookupParser {
+public class BanLookupParser
+{
 
     @SerializedName("player")
     @Expose
