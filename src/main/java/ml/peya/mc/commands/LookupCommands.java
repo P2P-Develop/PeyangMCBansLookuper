@@ -49,7 +49,7 @@ public class LookupCommands extends CommandBase
                     {
                         String isServernotFound = Border.get("https://api.mcbans.com/v3");
                         boolean isServernf = isServernotFound.startsWith("<html><head><title>500 Internal Server Error");
-                        if (isServernotFound.startsWith("<html><head><title>500 Internal Server Error"))
+                        if (isServernf)
                         {
                             Player.sendMessage(ChatBuilder.error(I18n.format("command.error.servernotf")), iCommandSender);
                             return;
@@ -143,11 +143,11 @@ public class LookupCommands extends CommandBase
         }
     }
 
-    @Override
+    /*@Override
     public boolean canCommandSenderUseCommand(ICommandSender iCommandSender)
     {
         return true;
-    }
+    }*/
 
 
     @Override
@@ -162,11 +162,11 @@ public class LookupCommands extends CommandBase
         return aliases;
     }
 
-    @Override
+    /*@Override
     public int compareTo(ICommand o)
     {
         return 0;
-    }
+    }*/
 
     @Override
     public int getRequiredPermissionLevel()

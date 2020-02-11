@@ -1,6 +1,8 @@
 package ml.peya.mc.commands;
 
+import com.sun.org.apache.bcel.internal.generic.I2D;
 import ml.peya.mc.*;
+import ml.peya.mc.netty.BodyElement;
 import ml.peya.mc.netty.Border;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
@@ -41,10 +43,16 @@ public class BanLookupCommands extends CommandBase
     {
         if (args.length == 1)
         {
+            String id = args[0];
+            if (id.startsWith("#"))
+            {
+                id = id.substring(2);
+            }
+
             int banIds = 0;
             try
             {
-                banIds = Integer.parseInt(args[0]);
+                banIds = Integer.parseInt(id);
             }
             catch (Exception e)
             {
@@ -57,7 +65,6 @@ public class BanLookupCommands extends CommandBase
                 public void run()
                 {
                     String sendername = iCommandSender.getName();
-                    String targetname = args[0];
                     boolean isenableapikey = Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey);
                     if(isenableapikey)
                     {

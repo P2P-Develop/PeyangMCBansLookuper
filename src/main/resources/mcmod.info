@@ -10,9 +10,9 @@
     "authorList": [
       "Compiled_peyang"
     ],
-    "credits": "",
+    "credits": "MCBans API (https://mcbans.com/)",
     "logoFile": "",
     "screenshots": [],
-    "dependencies": []
+    "dependencies": ["mod_MinecraftForge"]
   }
 ]
