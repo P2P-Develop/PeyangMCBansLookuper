@@ -1,6 +1,5 @@
 package ml.peya.mc;
 
-import com.sun.security.ntlm.Client;
 import ml.peya.mc.commands.BanLookupCommands;
 import ml.peya.mc.commands.LookupCommands;
 import ml.peya.mc.exception.BadApikeyException;
