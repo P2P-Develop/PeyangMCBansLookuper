@@ -1,5 +1,6 @@
 package ml.peya.mc;
 
+import com.sun.security.ntlm.Client;
 import ml.peya.mc.commands.BanLookupCommands;
 import ml.peya.mc.commands.LookupCommands;
 import ml.peya.mc.exception.BadApikeyException;
@@ -8,6 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.crash.CrashReport;
+import net.minecraft.enchantment.EnchantmentWaterWalker;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.ClientCommandHandler;
@@ -86,6 +88,7 @@ public class PeyangMcBansLookuper
         ClientCommandHandler.instance.registerCommand(new LookupCommands());
         ClientCommandHandler.instance.registerCommand(new BanLookupCommands());
         logger = Logger.getLogger(MOD_ID);
+
     }
 
 
