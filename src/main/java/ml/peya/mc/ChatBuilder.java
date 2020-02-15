@@ -1,13 +1,12 @@
 package ml.peya.mc;
 
-import net.minecraft.util.EnumChatFormatting;
 
 public class ChatBuilder
 {
     public static String error(String message)
     {
         return getInPrefix() + "\n" +
-                EnumChatFormatting.RED + "     " + message;
+                ColorEnum.fromString("red") + "     " + message;
     }
 
     public static String getPrefix(int tabCount,  String prefix, Object value)
@@ -22,7 +21,7 @@ public class ChatBuilder
 
     public static String getInPrefix()
     {
-        return EnumChatFormatting.AQUA + "-------" + EnumChatFormatting.BLUE + "PeyangMCBansLookuper" + EnumChatFormatting.AQUA + "-------";
+        return ColorEnum.fromString("aqua") + "-------" + ColorEnum.fromString("blue") + "PeyangMCBansLookuper" + ColorEnum.fromString("aqua") + "-------";
     }
 
 }
