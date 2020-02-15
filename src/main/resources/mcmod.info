@@ -1,18 +1,18 @@
 [
   {
-    "modid": "PeyangMcBansLookuper",
-    "name": "Peyang MCBans Lookup Mods",
-    "description": "MCbans Lookup mods. /lookup(lp) for display.",
-    "version": "1.0",
-    "mcversion": "[1.8-1.8.9]",
+    "modid": "peyangmcbanslookuper",
+    "name": "Peyang MCBans Lookuper",
+    "description": "MCbans Lookuper. /lookup(lp) for lookup player data for show display.\n/banlookup(lb) for lookup ban data for show display.",
+    "version": "1.1",
+    "mcversion": "[1.8,)",
     "url": "https://peya.ml/",
     "updateUrl": "",
     "authorList": [
       "Compiled_peyang"
     ],
-    "credits": "MCBans API (https://mcbans.com/)",
+    "credits": "MCBans API ( https://mcbans.com/ )",
     "logoFile": "",
     "screenshots": [],
-    "dependencies": ["mod_MinecraftForge"]
+    "dependencies": []
   }
 ]
