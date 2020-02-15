@@ -3,7 +3,7 @@ This mod is lookup McBans player data on the chat screen.
 
 ## Usage
 ### /lookup \<PlayerName\> - Lookup \<PlayerName\> McBans player data.
-#### Example: /lookup Compiled_peyang
+#### Example: /lookup 418_Im_a_Peyang
  | alias
 /lp \<PlayerName\> 
 
