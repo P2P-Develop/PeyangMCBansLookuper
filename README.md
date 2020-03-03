@@ -7,7 +7,7 @@ This mod is lookup McBans player data on the chat screen.
  | alias
 /lp \<PlayerName\> 
 
-### /banlookup \<BaniD\> - Lookup \<BanID\> Mcbans ban data. 
+### /banlookup \<BanID\> - Lookup \<BanID\> Mcbans ban data. 
 #### Example: /banlookup 5622677
 | alias
 /lb \<BanID\>
@@ -21,7 +21,7 @@ This mod is lookup McBans player data on the chat screen.
 ## LICENSE
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-# **THIS MOD USES MCBANS API**
+# This mod uses McBans API
 ## [MCBans](http://mcbans.com/)
 #### \(c\) 2020 Mcbans
 
