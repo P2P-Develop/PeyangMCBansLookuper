@@ -26,8 +26,7 @@ public class Mcbans
                 return lp;
             }
 
-            Gson gson = new Gson();
-            LookupParser lp = gson.fromJson(ret, LookupParser.class);
+            LookupParser lp = new Gson().fromJson(ret, LookupParser.class);
             LookupParserPlus lpp = new LookupParserPlus();
             lpp.total = lp.total;
             lpp.reputation = lp.reputation;
@@ -73,8 +72,7 @@ public class Mcbans
                 return lp;
             }
 
-            Gson gson = new Gson();
-            BanLookupParser lp = gson.fromJson(ret, BanLookupParser.class);
+            BanLookupParser lp = new Gson().fromJson(ret, BanLookupParser.class);
             BanLookupParserPlus lpp = new BanLookupParserPlus();
             lpp.admin = lp.admin;
             lpp.date = lp.date;
