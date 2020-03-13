@@ -1,6 +1,14 @@
 language: java
 jdk:
   - openjdk8
+sudo: required
+
+before_install:
+  - curl -s api.sdkman.io | bash
+  - source /home/travis/.sdkman/bin/sdkman-init.sh
+  - sdk list gradle
+  - sdk install gradle 4.8.1
+  - sdk default gradle 4.8.1
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter

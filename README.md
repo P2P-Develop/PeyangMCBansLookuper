@@ -4,6 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/131412a27fbb7dc61ea2/maintainability)](https://codeclimate.com/github/P2P-Develop/PeyangMCBansLookuper/maintainability)
 [![Build Status](https://travis-ci.org/P2P-Develop/PeyangMCBansLookuper.svg?branch=master)](https://travis-ci.org/P2P-Develop/PeyangMCBansLookuper)  
 This mod is lookup McBans player data on the chat screen.
+
 ## Usage
 ### /lookup \<PlayerName\> - Lookup \<PlayerName\> McBans player data.
 #### Example: /lookup Compiled_peyang
