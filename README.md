@@ -4,14 +4,14 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/131412a27fbb7dc61ea2/maintainability)](https://codeclimate.com/github/P2P-Develop/PeyangMCBansLookuper/maintainability)
 [![Build Status](https://travis-ci.org/P2P-Develop/PeyangMCBansLookuper.svg?branch=master)](https://travis-ci.org/P2P-Develop/PeyangMCBansLookuper)  
 This mod is lookup McBans player data on the chat screen.
-
 ## Usage
 ### /lookup \<PlayerName\> - Lookup \<PlayerName\> McBans player data.
-#### Example: /lookup Compiled_peyang
- | alias  
-* /lp \<PlayerName\> 
 
-### /banlookup \<BaniD\> - Lookup \<BanID\> Mcbans ban data. 
+#### Example: /lookup 418_Im_a_Peyang
+ | alias
+/lp \<PlayerName\> 
+
+### /banlookup \<BanID\> - Lookup \<BanID\> Mcbans ban data. 
 #### Example: /banlookup 5622677
 | alias  
 * /lb \<BanID\>
@@ -25,7 +25,7 @@ This mod is lookup McBans player data on the chat screen.
 ## LICENSE
 [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.html)
 
-# **THIS MOD USES MCBANS API**
+# This mod uses McBans API
 ## [MCBans](http://mcbans.com/)
 #### \(c\) 2020 Mcbans
 
