@@ -36,77 +36,56 @@ public class LookupCommands extends CommandBase
         if (args.length == 1)
         {
             Thread thread = new Thread(() -> {
-                String sendername = iCommandSender.getName();
-                String targetname = args[0];
-                boolean isenableapikey = Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey);
-                if(isenableapikey)
+                if(Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey))
                 {
-                    String isServernotFound = Border.get("https://api.mcbans.com/v3");
-                    boolean isServernf = isServernotFound.startsWith("<html><head><title>500 Internal Server Error");
-                    if (isServernf)
+                    if (Border.get("https://api.mcbans.com/v3").startsWith("<html><head><title>500 Internal Server Error"))
                     {
                         Player.sendMessage(ChatBuilder.error(I18n.format("command.error.servernotf")), iCommandSender);
                         return;
                     }
-                    LookupParserPlus lpp = Mcbans.lookup(sendername, PeyangMcBansLookuper.apikey, targetname, isenableapikey);
+                    LookupParserPlus lpp = Mcbans.lookup(iCommandSender.getName(), PeyangMcBansLookuper.apikey, args[0], Mcbans.isEnableApiKey(PeyangMcBansLookuper.apikey));
 
                     LookupParserPlus.STATUS result = lpp.RESULT;
                     if (result == LookupParserPlus.STATUS.OK)
                     {
-                        int totalbans = lpp.total;
-                        double reputation = lpp.reputation;
-                        ArrayList<String> localbans = lpp.local;
-                        boolean localflag = !localbans.isEmpty();
-                        ArrayList<String> globalbans = lpp.global;
-                        boolean globalflag = !globalbans.isEmpty();
-                        int processid = lpp.pid;
-                        String uuid = lpp.uuid;
-                        String mcid = lpp.player;
-                        double datetime = lpp.executionTime;
                         Player.sendMessage(ChatBuilder.getInPrefix(), iCommandSender);
-                        Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.target"), PeyangMcBansLookuper.secondColor + mcid), iCommandSender);
-                        Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.playerlp.totalbans"), PeyangMcBansLookuper.secondColor + String.valueOf(totalbans)), iCommandSender);
-                        Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.playerlp.reputation"), PeyangMcBansLookuper.secondColor + String.valueOf(reputation) + "/10.0"), iCommandSender);
-                        Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.playerlp.localbans"), localflag ? "" : PeyangMcBansLookuper.secondColor + "N/A"), iCommandSender);
-                        if (localflag)
+                        Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.target"), PeyangMcBansLookuper.secondColor + lpp.player), iCommandSender);
+                        Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.playerlp.totalbans"), PeyangMcBansLookuper.secondColor + String.valueOf(lpp.total)), iCommandSender);
+                        Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.playerlp.reputation"), PeyangMcBansLookuper.secondColor + String.valueOf(lpp.reputation) + "/10.0"), iCommandSender);
+                        Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.playerlp.localbans"), !lpp.local.isEmpty() ? "" : PeyangMcBansLookuper.secondColor + "N/A"), iCommandSender);
+                        if (!lpp.local.isEmpty())
                         {
-                            for (String local : localbans)
+                            for (String local : lpp.local)
                             {
                                 McBansParser mcBansParser = McBansParser.parse(local);
                                 int id = mcBansParser.id;
-                                String ip = mcBansParser.ip;
-                                String reason = mcBansParser.reason;
                                 IChatComponent banning = new ChatComponentText(PeyangMcBansLookuper.banColor.get(0) + "#" + id);
                                 ChatStyle mouse = new ChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText("Click to execute BanLookup Command.")));
                                 mouse.setChatClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/banlookup " + id));
                                 banning.setChatStyle(mouse);
-                                IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + reason);
-                                banning.appendSibling(comps);
+                                banning.appendSibling(new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + mcBansParser.ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + mcBansParser.reason));
                                 iCommandSender.addChatMessage(banning);
                             }
                         }
-                        if (globalflag)
+                        if (!lpp.global.isEmpty())
                         {
-                            for (String global : globalbans)
+                            for (String global : lpp.global)
                             {
                                 McBansParser mcBansParser = McBansParser.parse(global);
                                 int id = mcBansParser.id;
-                                String ip = mcBansParser.ip;
-                                String reason = mcBansParser.reason;
                                 IChatComponent banning = new ChatComponentText(PeyangMcBansLookuper.banColor.get(0) + "#" + id);
                                 ChatStyle mouse = new ChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText("Click to execute BanLookup Command.")));
                                 mouse.setChatClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/banlookup " + id));
                                 banning.setChatStyle(mouse);
-                                IChatComponent comps = new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + reason);
-                                banning.appendSibling(comps);
+                                banning.appendSibling(new ChatComponentText(" " + PeyangMcBansLookuper.banColor.get(1) + mcBansParser.ip + PeyangMcBansLookuper.banColor.get(2) + "    .:.    " + PeyangMcBansLookuper.banColor.get(3) + mcBansParser.reason));
                                 iCommandSender.addChatMessage(banning);
 
                             }
                         }
                         Player.sendMessage(ChatBuilder.getPrefix(0, PeyangMcBansLookuper.firstColor + I18n.format("command.success.developer"), ""), iCommandSender);
-                        Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.processid"), ColorEnum.fromString("dark_aqua") + String.valueOf(processid)), iCommandSender);
-                        Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.playerlp.uuid"), ColorEnum.fromString("dark_aqua") + uuid), iCommandSender);
-                        Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.executiontime"), ColorEnum.fromString("dark_aqua") + String.valueOf(datetime)), iCommandSender);
+                        Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.processid"), ColorEnum.fromString("dark_aqua") + String.valueOf(lpp.pid)), iCommandSender);
+                        Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.playerlp.uuid"), ColorEnum.fromString("dark_aqua") + lpp.uuid), iCommandSender);
+                        Player.sendMessage(ChatBuilder.getPrefix(1, PeyangMcBansLookuper.secondColor + I18n.format("command.success.developer.executiontime"), ColorEnum.fromString("dark_aqua") + String.valueOf(lpp.executionTime)), iCommandSender);
                     }
                     else
                     {

@@ -81,12 +81,10 @@ public class PeyangMcBansLookuper
     public void init(FMLInitializationEvent e)
     {
         MinecraftForge.EVENT_BUS.register(new Events());
-        lookupKeys = new KeyBinding(I18n.format("main.init.success.keybind"), 38, "PeyangMcBansLookup");
-        ClientRegistry.registerKeyBinding(lookupKeys);
+        ClientRegistry.registerKeyBinding(new KeyBinding(I18n.format("main.init.success.keybind"), 38, "PeyangMcBansLookup"));
         ClientCommandHandler.instance.registerCommand(new LookupCommands());
         ClientCommandHandler.instance.registerCommand(new BanLookupCommands());
         logger = Logger.getLogger(MOD_ID);
-
     }
 
 

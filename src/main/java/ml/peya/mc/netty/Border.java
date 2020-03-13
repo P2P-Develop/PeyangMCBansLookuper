@@ -18,10 +18,7 @@ public class Border
 
         try
         {
-
-            URL url = new URL(postUrl);
-
-            con = (HttpURLConnection) url.openConnection();
+            con = (HttpURLConnection) new URL(postUrl).openConnection();
             StringBuilder contentBuilder = new StringBuilder();
             for (BodyElement bodyElement : contents)
             {
@@ -85,8 +82,7 @@ public class Border
     {
         try
         {
-            URL url = new URL(uri);
-            HttpURLConnection http = (HttpURLConnection)url.openConnection();
+            HttpURLConnection http = (HttpURLConnection) new URL(uri).openConnection();
             http.setRequestMethod("GET");
             http.connect();
 
