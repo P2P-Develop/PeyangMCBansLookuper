@@ -1,4 +1,4 @@
-package ml.peya.mc;
+package ml.peya.mc.Chat;
 
 
 public class ChatBuilder
@@ -13,9 +13,7 @@ public class ChatBuilder
     {
         StringBuilder tab = new StringBuilder();
         for (int i = 0; tabCount > i; i++)
-        {
             tab.append("    ");
-        }
         return tab + prefix + ": " + value;
     }
 

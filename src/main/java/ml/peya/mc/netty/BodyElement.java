@@ -4,10 +4,6 @@ public class BodyElement
 {
     public Object name;
     public Object value;
-    public BodyElement()
-    {
-
-    }
 
     public BodyElement(Object names, Object values)
     {

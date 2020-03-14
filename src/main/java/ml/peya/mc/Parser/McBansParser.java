@@ -1,4 +1,4 @@
-package ml.peya.mc;
+package ml.peya.mc.Parser;
 
 import java.util.ArrayList;
 
@@ -13,14 +13,11 @@ public class McBansParser
 
         String id = lname[0];
         String ip = lname[1];
-        ArrayList<String> reasons = new ArrayList<String>();
+        ArrayList<String> reasons = new ArrayList<>();
         for (int i = 0; i < lname.length; i++)
         {
             if (i == 0 || i == 1 || i == 2)
-            {
                 continue;
-            }
-
             reasons.add(lname[i]);
         }
         McBansParser mcBansParser = new McBansParser();

@@ -1,5 +1,6 @@
 package ml.peya.mc;
 
+import ml.peya.mc.Chat.ColorEnum;
 import ml.peya.mc.commands.BanLookupCommands;
 import ml.peya.mc.commands.LookupCommands;
 import ml.peya.mc.exception.BadApikeyException;
@@ -8,11 +9,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.crash.CrashReport;
-import net.minecraft.enchantment.EnchantmentWaterWalker;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.ClientCommandHandler;
-import net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -20,11 +18,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -39,11 +33,9 @@ public class PeyangMcBansLookuper
     public static final String MOD_ID = "peyangmcbanslookuper";
     public static final String MOD_NAME = "PeyangMcbansLookuper";
     public static final String MOD_VERSION = "1.1";
-    public static final String MOD_DEPENDENCIES = ""/*"required-after:Forge@[1.8-11.15.1.1722,)"*/;
     public static final String MOD_ACCEPTED_MC_VERSIONS = "[1.8,)";
     public static KeyBinding lookupKeys;
     public static String apikey = "";
-    public static String colours;
     public static Logger logger;
     public static EnumChatFormatting firstColor;
     public static EnumChatFormatting secondColor;
@@ -72,21 +64,17 @@ public class PeyangMcBansLookuper
         }
 
         if (apikey.equals("edit required!"))
-        {
             Minecraft.getMinecraft().crashed(new CrashReport(I18n.format("command.error.apinotf"), new BadApikeyException((I18n.format("command.error.apinotf")))));
-        }
     }
 
     @EventHandler
     public void init(FMLInitializationEvent e)
     {
+        lookupKeys = new KeyBinding(I18n.format("main.init.success.keybind"), 38, "PeyangMcBansLookup");
         MinecraftForge.EVENT_BUS.register(new Events());
-        ClientRegistry.registerKeyBinding(new KeyBinding(I18n.format("main.init.success.keybind"), 38, "PeyangMcBansLookup"));
+        ClientRegistry.registerKeyBinding(lookupKeys);
         ClientCommandHandler.instance.registerCommand(new LookupCommands());
         ClientCommandHandler.instance.registerCommand(new BanLookupCommands());
         logger = Logger.getLogger(MOD_ID);
     }
-
-
-
 }
