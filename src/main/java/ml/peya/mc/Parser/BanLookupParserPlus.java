@@ -1,4 +1,4 @@
-package ml.peya.mc;
+package ml.peya.mc.Parser;
 
 public class BanLookupParserPlus
 {

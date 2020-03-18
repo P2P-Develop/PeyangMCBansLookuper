@@ -1,4 +1,4 @@
-package ml.peya.mc;
+package ml.peya.mc.Parser;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

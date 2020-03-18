@@ -23,13 +23,9 @@ public class Border
             for (BodyElement bodyElement : contents)
             {
                 if (contentBuilder.toString().equals(""))
-                {
                     contentBuilder.append(bodyElement.name).append("=").append(bodyElement.value);
-                }
                 else
-                {
                     contentBuilder.append("&").append(bodyElement.name).append("=").append(bodyElement.value);
-                }
             }
             con.setDoOutput(true);
             con.setRequestMethod("POST");
@@ -44,24 +40,19 @@ public class Border
             {
                 final InputStream in = con.getInputStream();
                 String encoding = con.getContentEncoding();
-                if(null == encoding)
-                {
+                if(encoding == null)
                     encoding = "UTF-8";
-                }
                 final InputStreamReader inReader = new InputStreamReader(in, encoding);
                 final BufferedReader bufReader = new BufferedReader(inReader);
                 String line;
                 while((line = bufReader.readLine()) != null)
-                {
                     result.append(line);
-                }
                 bufReader.close();
                 inReader.close();
                 in.close();
-            }else{
-                System.out.println(status);
             }
-
+            else
+                System.out.println(status);
         }
         catch (Exception e1)
         {
@@ -70,9 +61,7 @@ public class Border
         finally
         {
             if (con != null)
-            {
                 con.disconnect();
-            }
         }
         return result.toString();
     }

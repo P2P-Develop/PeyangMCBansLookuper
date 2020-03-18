@@ -1,7 +1,7 @@
 package ml.peya.mc;
 
+import ml.peya.mc.Player.Facing;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -15,18 +15,11 @@ public class Events
     @SideOnly(Side.CLIENT)
     public void onKeyEvent(InputEvent.KeyInputEvent e)
     {
-        if (PeyangMcBansLookuper.lookupKeys.isPressed())
-        {
-            Minecraft mc = Minecraft.getMinecraft();
-            if (Facing.isFacingPlayer(mc))
-            {
-                String name = Facing.getFacingPlayerName(mc);
-                if (!name.equals(""))
-                {
-                    ClientCommandHandler.instance.executeCommand(mc.thePlayer, "/lookup " + name);
-                }
-            }
-        }
+        Minecraft mc = Minecraft.getMinecraft();
+        if (!(PeyangMcBansLookuper.lookupKeys.isPressed() || Facing.isFacingPlayer(mc)))
+            return;
+        String name = Facing.getFacingPlayerName(mc);
+        if (!name.equals(""))
+            ClientCommandHandler.instance.executeCommand(mc.thePlayer, "/lookup " + name);
     }
-
 }
