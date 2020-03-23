@@ -16,7 +16,7 @@ public class Events
     public void onKeyEvent(InputEvent.KeyInputEvent e)
     {
         Minecraft mc = Minecraft.getMinecraft();
-        if (!(PeyangMcBansLookuper.lookupKeys.isPressed() || Facing.isFacingPlayer(mc)))
+        if (!PeyangMcBansLookuper.lookupKeys.isPressed() || !Facing.isFacingPlayer(mc))
             return;
         String name = Facing.getFacingPlayerName(mc);
         if (!name.equals(""))
