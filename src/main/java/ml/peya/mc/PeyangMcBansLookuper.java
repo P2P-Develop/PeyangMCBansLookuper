@@ -31,7 +31,7 @@ public class PeyangMcBansLookuper
     public static final String MOD_ID = "peyangmcbanslookuper";
     public static final String MOD_NAME = "PeyangMcbansLookuper";
     public static final String MOD_VERSION = "1.1";
-    public static final String MOD_ACCEPTED_MC_VERSIONS = "[1.8,)";
+    public static final String MOD_ACCEPTED_MC_VERSIONS = "[1.12.2,)";
     public static KeyBinding lookupKeys;
     public static String apikey = "";
     public static Logger logger;
