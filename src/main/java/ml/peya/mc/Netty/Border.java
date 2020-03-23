@@ -1,4 +1,4 @@
-package ml.peya.mc.netty;
+package ml.peya.mc.Netty;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

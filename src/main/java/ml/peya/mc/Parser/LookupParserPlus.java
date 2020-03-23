@@ -22,5 +22,5 @@ public class LookupParserPlus extends LookupParser
         UNKNOWNERROR,
         I_AM_A_TEAPOT,
         UNKNOWNHOST
-    };
+    }
 }

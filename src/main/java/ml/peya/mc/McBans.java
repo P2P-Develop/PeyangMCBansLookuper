@@ -5,8 +5,8 @@ import ml.peya.mc.Parser.BanLookupParser;
 import ml.peya.mc.Parser.BanLookupParserPlus;
 import ml.peya.mc.Parser.LookupParser;
 import ml.peya.mc.Parser.LookupParserPlus;
-import ml.peya.mc.netty.BodyElement;
-import ml.peya.mc.netty.Border;
+import ml.peya.mc.Netty.BodyElement;
+import ml.peya.mc.Netty.Border;
 
 import java.util.ArrayList;
 

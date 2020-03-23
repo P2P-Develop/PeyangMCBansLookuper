@@ -23,11 +23,11 @@ main.init.error.incompatibleserver=このModはサーバサイドでは動作し
 
 command.error.teapot=エラー: 私はティーポットです！
 command.error.notfoundplayer=エラー: プレイヤーが見つかりませんでした！
-command.error.notfoundban=エラー: BANが見つかりませんでした
-command.error.unknown=エラー: 不明 https://github.com/peyang-Celeron/PeyangMCBansLookuper/issues にご報告ください。
-command.error.servernotf=エラー: MCBansサーバに接続できませんでした。
+command.error.notfoundban=エラー: BANが見つかりませんでした！
+command.error.unknown=エラー: 不明 https://github.com/peyang-Celeron/PeyangMCBansLookuper/issues にご報告ください！
+command.error.servernotf=エラー: MCBansサーバに接続できませんでした！
 command.error.apinotf=エラー: APiキーが見つかりませんでした！
-command.error.j.teapot=エラー: 私はティーポットです。
+command.error.j.teapot=エラー: 私はティーポットです！
 command.error.usage=エラー: 使用法:
 
 main.init.success.keybind=目の前のプレイヤーをルックアップします。

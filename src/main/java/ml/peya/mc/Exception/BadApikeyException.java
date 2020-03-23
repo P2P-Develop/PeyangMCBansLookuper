@@ -1,4 +1,4 @@
-package ml.peya.mc.exception;
+package ml.peya.mc.Exception;
 
 public class BadApikeyException extends Exception
 {
